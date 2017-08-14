@@ -1,0 +1,16 @@
+[Unit]
+Description=ICMP ping dependent NFS client mount services
+
+[Service]
+ExecStart=/usr/local/bin/nfs-client-ping-mount.sh
+WorkingDirectory=/tmp
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=nfs-client-ping-mount
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
